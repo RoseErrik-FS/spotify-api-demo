@@ -1,9 +1,14 @@
-// api/server.js
+//spotify-api-demo/api/server.js
 require("dotenv").config();
+const cors = require("cors");
 const express = require("express");
+const spotifyRoutes = require("./routes/spotifyRoutes");
 
 const app = express();
 const port = process.env.PORT || 3001;
+
+// Routes
+app.use("/api/spotify", spotifyRoutes);
 
 // CORS middleware
 app.use(cors());
